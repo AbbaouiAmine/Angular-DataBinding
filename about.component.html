@@ -1,0 +1,25 @@
+
+<div class="card">
+        <div class="card-header">
+          Commentaires
+        </div>
+        <div class="card-body">
+                <ul class="list-group">
+                        <li>Nom : {{info.nom}}</li>
+                        <li>Prénom : {{info.prenom}}</li>
+                        <li>Email : {{info.email}}</li>
+                    </ul>
+                   <label for="message">Message : </label> <input type="text" [(ngModel)]="comment.message"> 
+                    <button class="btn btn-primary" (click)="addComment()" [disabled]="new_comment">Add comment</button>
+                    
+                    <div *ngIf="comments.length > 0;else nocomment">
+                        <h1>Liste des messages</h1>
+                        <ul>
+                            <li *ngFor="let c of comments">{{c.date}} : {{c.message}}</li>
+                        </ul>
+                    </div>
+                    <ng-template #nocomment>
+                        <p>Liste des commentaires est vide</p>
+                    </ng-template>
+        </div>
+      </div>
